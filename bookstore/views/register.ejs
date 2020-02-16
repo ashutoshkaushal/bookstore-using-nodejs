@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Create New Account</title>
+  <link href="../css/bootstrap.css" rel='stylesheet' type='text/css' />
+<link href="../css/login_overlay.css" rel='stylesheet' type='text/css' />
+<link href="../css/style6.css" rel='stylesheet' type='text/css' />
+<link rel="stylesheet" href="../css/shop.css" type="text/css" />
+<link rel="stylesheet" href="../css/owl.carousel.css" type="text/css" media="all">
+<link rel="stylesheet" href="../css/owl.theme.css" type="text/css" media="all">
+<link href="css/style.css" rel='stylesheet' type='text/css' />
+<link href="css/fontawesome-all.css" rel="stylesheet">
+<link href="//fonts.googleapis.com/css?family=Inconsolata:400,700" rel="stylesheet">
+<link href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800"
+    rel="stylesheet">
+<style>
+body{
+  background-image: url('../images/book-bg.jpg');
+  background-size: cover;
+  height: 100vh;  
+}
+</style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="row">   
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+         
+            <div class="card-deck">
+                <div class="card">
+                  <div class="card-body">
+                      <% if(data.length) {%>
+              
+                        <div class="alert alert-danger" role="alert">
+                          
+                        <%= data %>
+                      </div>
+                        <% } %>
+
+                      <!-- <div class="col-sm-12"> -->
+                            <h5 class="card-title">Registration</h5>
+                        <!-- </div> -->
+                    <form action="/create-account" class="row" method="post" enctype="multipart/form-data">
+                        <div class="form-group col-sm-6"> 
+                                <input type="text" name="username"  class="form-control" placeholder="Full Name"><br/>       
+                              </div>     
+                      <div class="form-group col-sm-6"> 
+                    <input type="email" name="email"  class="form-control" placeholder="Email Address"><br/>       
+                  </div>
+                  <div class="form-group col-sm-6"> 
+                    <input type="tel" name="phone"  class="form-control" placeholder="Phone"><br/>       
+                  </div>
+                  <div class="form-group col-sm-6">
+                    <input type="password" class="form-control" name="password" placeholder="Password"><br/>       
+                  </div>
+                  <div class="form-group col-sm-6">
+                        <input type="text" class="form-control" name="address" placeholder="Address"><br/>       
+                      </div>
+                      <div class="form-group col-sm-6">
+                            <input type="text" class="form-control" name="city" placeholder="City"><br/>       
+                          </div>
+                          <div class="form-group col-sm-6">
+                                <input type="text" class="form-control" name="country" placeholder="Country"><br/>       
+                              </div>
+                              <div class="form-group col-sm-6">
+                                    <input type="file" class="form-control" name="file" placeholder="Profile Picture"><br/>       
+                                  </div>
+                                  <div class="form-group col-sm-12">
+              <button type="submit" class="btn btn-primary btn-lg float-right" name="button">Create Account</button>
+              <br/>
+
+                <a href="/admin">Login into Account</a> 
+              </div>    
+        </form>
+                  </div>
+                </div>
+
+              </div>
+
+
+     
+        </div>
+        <div class="col-sm-3"></div>
+      
+</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Bookstore</title>
+    <link href="../css/bootstrap.css" rel='stylesheet' type='text/css' />
+<link href="../css/login_overlay.css" rel='stylesheet' type='text/css' />
+<link href="../css/style6.css" rel='stylesheet' type='text/css' />
+<link rel="stylesheet" href="../css/shop.css" type="text/css" />
+<link rel="stylesheet" href="../css/owl.carousel.css" type="text/css" media="all">
+<link rel="stylesheet" href="../css/owl.theme.css" type="text/css" media="all">
+<link href="css/style.css" rel='stylesheet' type='text/css' />
+<link href="css/fontawesome-all.css" rel="stylesheet">
+<link href="//fonts.googleapis.com/css?family=Inconsolata:400,700" rel="stylesheet">
+<link href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800"
+    rel="stylesheet">
+    <script src="../js/jquery-2.2.3.min.js"></script>
+    <script src="../js/bootstrap.js"></script>
+    <style>
+      .nav-pills{
+        background-color: #f7f7f7;
+      }
+      .user-panel {
+    /* position: relative; */
+    /* width: 100%; */
+    padding:0 20px;
+    overflow: hidden;
+}
+.user-panel > .image > img {
+    width: 100%;
+    max-width: 45px;
+    height: 45px;
+}
+.user-panel > .info {
+    padding: 5px 5px 5px 15px;
+    line-height: 1;
+    /* position: absolute; */
+    left: 55px;
+}
+.user-panel > .info > p {
+    font-weight: 600;
+    margin-top: 5px;
+    color: #fff;
+}
+    </style>
+  </head>
+  <body>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+          <a class="navbar-brand" href="#"><b>  Bookstore</b></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+           
+                 <li class="nav-item">
+            <div class="user-panel float-right">
+                <% if(data.length) { %>
+                  <div class="float-left info text-uppercase">
+               
+                      <p>   <%=  %></p>
+                  
+                   </div>
+                <div class="float-left image">
+                  <img src="/../uploads/<%= data[0].profile %>" class="rounded-circle" alt="User Image">
+                </div>
+               
+                <% }else{ %> 
+                Not Logged In
+                  <% } %>
+              </div>
+            </li>
+            <li class="nav-item">
+                <a class="btn btn-outline-light my-2 my-sm-0" href="/logout">Logout</a>
+            </li>
+            </ul>
+          </div>
+        </nav>
+        
+    <div class="container">
+      <div class="row">
+
+        <div class="col-sm-12">
+                <br/>
+                <br/>
+                <% if(resp.length) { %> 
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                          <%= resp %>
+                          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>  
+                        <% } %>
+            <% if(data.length) { %>
+            <form class="row" method="post" enctype="multipart/form-data" action="/update-product">
+                <input type="hidden" value="<%= data[0].id %>" name="id" >
+                <div class="form-group col-sm-6">
+                  <label for="name">Book Name</label>
+                  <input type="text" class="form-control" value="<%= data[0].name %>" name="name" id="name"  placeholder="Enter Name" required>
+                </div>
+                <div class="form-group col-sm-6">
+                  <label for="price">Price</label>
+                  <input type="number" class="form-control"  value="<%= data[0].price %>" name="price" id="price" placeholder="Price" required>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="desc">Book Description</label>
+                    <textarea class="form-control" rows="10" name="desc" id="desc" placeholder="Description" required><%= data[0].description %> 
+
+                    </textarea>
+                  </div>
+                  <div class="form-group col-sm-6">
+                      <label for="cover">Cover Image</label>  
+                      <input type="file" class="form-control"  name="file" id="cover" placeholder="Price" required>
+                  </div>
+                  <div class="form-group col-sm-6">  
+                      <img src="/uploads/<%= data[0].figure %>" class="img-fluid" alt="">    
+                      </div>
+                  <div class="form-group col-sm-6">  
+                <button type="submit" class="btn btn-primary float-right">Submit</button>
+              </div>
+              </form>
+
+              <% } %>
+           
+          </div>
+      </div>
+   
+
+                            
+              
+              </div>
+                      
+         
+  </body>
+</html>
